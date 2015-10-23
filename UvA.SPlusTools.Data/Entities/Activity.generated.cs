@@ -1,9 +1,9 @@
 ﻿using System;
- 
+using System.Runtime.Serialization;
 
 namespace UvA.SPlusTools.Data.Entities
 {
-	public partial class Activity : SPlusObject
+   public partial class Activity : SPlusObject
 	{
 		public Activity(College col) 
 		{
@@ -50,9 +50,11 @@ namespace UvA.SPlusTools.Data.Entities
 				Object.Zone = value == null ? null : value.Object;
 			}
 		}
-		
-		AvailabilityPattern _NamedAvailability;
-		public AvailabilityPattern NamedAvailability 
+
+        
+        AvailabilityPattern _NamedAvailability;
+        [DataMember]
+        public AvailabilityPattern NamedAvailability 
 		{
 			get 
 			{

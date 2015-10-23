@@ -9,7 +9,7 @@ namespace UvA.SPlusTools.Data.Entities
 {
     public abstract class Pattern
     {
-        internal dynamic Object;
+        public dynamic Object;
         public College College { get; set; }
 
         public bool[] PatternAsArray
@@ -60,6 +60,23 @@ namespace UvA.SPlusTools.Data.Entities
         {
             College = college;
             Object = college.Object.CreateWeekInYearPattern();
+        }
+    }
+
+    public class PeriodInWeekPattern : Pattern
+    {
+        public int[] Periods { get { return Values; } }
+
+        public PeriodInWeekPattern(College college, dynamic obj)
+        {
+            College = college;
+            Object = obj;
+        }
+
+        public PeriodInWeekPattern(College college)
+        {
+            College = college;
+            Object = college.Object.CreatePeriodInWeekPattern();
         }
     }
 }

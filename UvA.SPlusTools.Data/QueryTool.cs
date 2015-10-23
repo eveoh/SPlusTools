@@ -14,19 +14,19 @@ namespace UvA.SPlusTools.Data
     /// </summary>
     public class QueryTool
     {
-        protected string ProgID { get; set; }
+        public string ProgID { get; set; }
 
-        protected string GetSingleField(string field, string table, Dictionary<string, object> pars)
+        public string GetSingleField(string field, string table, Dictionary<string, object> pars)
         {
             return GetField(field, table, pars).SingleOrDefault();
         }
 
-        protected IEnumerable<string> GetField(string field, string table, Dictionary<string, object> pars)
+        public IEnumerable<string> GetField(string field, string table, Dictionary<string, object> pars)
         {
             return DoQuery(field, table, pars).Select(r => r[0].ToString());
         }
 
-        protected IEnumerable<DataRow> DoQuery(string fields, string table, Dictionary<string, object> pars = null)
+        public IEnumerable<DataRow> DoQuery(string fields, string table, Dictionary<string, object> pars = null)
         {
             string condition = pars == null ? "" : "WHERE " + pars.ToSeparatedString(p =>
             {
@@ -37,7 +37,7 @@ namespace UvA.SPlusTools.Data
             return DoQuery(string.Format("SELECT {0} FROM {1} {2}", fields, table, condition));
         }
 
-        protected IEnumerable<DataRow> DoQuery(string q)
+        public IEnumerable<DataRow> DoQuery(string q)
         {
             var dataset = new System.Data.DataSet();
             OleDbConnection conn = new OleDbConnection(string.Format("Provider={0};Data Source={1};{2}",
@@ -58,14 +58,14 @@ namespace UvA.SPlusTools.Data
         }
 
 
-        protected Dictionary<string, object> Parameter(params Tuple<string, object>[] pars)
+        public Dictionary<string, object> Parameter(params Tuple<string, object>[] pars)
         {
             var dict = new Dictionary<string, object>();
             pars.ForEach(z => dict.Add(z.Item1, z.Item2));
             return dict;
         }
 
-        protected Dictionary<string, object> Parameter(string s, object obj)
+        public Dictionary<string, object> Parameter(string s, object obj)
         {
             return Parameter(Tuple.Create(s, obj));
         }

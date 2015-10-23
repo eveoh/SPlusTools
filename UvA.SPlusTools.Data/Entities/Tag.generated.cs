@@ -3,7 +3,8 @@
 
 namespace UvA.SPlusTools.Data.Entities
 {
-	public partial class Tag : SPlusObject
+    [Serializable]
+    public partial class Tag : SPlusObject
 	{
 		public Tag(College col) 
 		{

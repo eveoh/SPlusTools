@@ -3,7 +3,8 @@
 
 namespace UvA.SPlusTools.Data.Entities
 {
-	public partial class Department : SPlusObject
+    [Serializable]
+    public partial class Department : SPlusObject
 	{
 		public Department(College col) 
 		{

@@ -9,7 +9,7 @@ namespace UvA.SPlusTools.Data
 {
     public class SPlusCollection<T> : ICollection<T> where T : SPlusObject
     {
-        public dynamic Source { get; private set; }
+        public dynamic Source { get; set; }
         College College;
 
         public SPlusCollection(College college, dynamic source)

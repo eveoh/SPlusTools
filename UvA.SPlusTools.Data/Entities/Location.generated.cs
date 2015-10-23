@@ -1,9 +1,10 @@
 ﻿using System;
- 
+using System.Runtime.Serialization;
 
 namespace UvA.SPlusTools.Data.Entities
 {
-	public partial class Location : SPlusObject
+    [DataContract]
+    public partial class Location : SPlusObject
 	{
 		public Location(College col) 
 		{
@@ -18,13 +19,14 @@ namespace UvA.SPlusTools.Data.Entities
 			Object = obj;
 		}
 
-		public int Capacity 
+        [DataMember]
+        public int Capacity 
 		{
 			get { return Object.Capacity; }
 			set { Object.Capacity = value; }
 		}
-		
-		PeriodInYearPattern _BaseAvailability;
+
+        PeriodInYearPattern _BaseAvailability;
 		public PeriodInYearPattern BaseAvailability 
 		{
 			get 
@@ -39,8 +41,8 @@ namespace UvA.SPlusTools.Data.Entities
 				Object.BaseAvailability = value == null ? null : value.Object;
 			}
 		}
-		
-		Zone _Zone;
+
+        Zone _Zone;
 		public Zone Zone 
 		{
 			get 
@@ -55,8 +57,8 @@ namespace UvA.SPlusTools.Data.Entities
 				Object.Zone = value == null ? null : value.Object;
 			}
 		}
-		
-		AvailabilityPattern _NamedAvailability;
+
+        AvailabilityPattern _NamedAvailability;
 		public AvailabilityPattern NamedAvailability 
 		{
 			get 

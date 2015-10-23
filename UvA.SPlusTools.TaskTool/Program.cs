@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using UvA.Utilities;
-using System.Collections.Concurrent;
-using System.Threading;
-using System.Runtime.ExceptionServices;
-using System.Security;
 using System.Xml.Serialization;
 using System.IO;
-using UvA.SPlusTools.Data.Entities;
-using UvA.SPlusTools.Data.Tasks;
 using UvA.SPlusTools.Data;
 
 namespace UvA.SPlusTools.TaskTool
